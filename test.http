@@ -1,0 +1,52 @@
+GET http://localhost:8080/api/tour/list
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/summary
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/update-tour-date/1/2024-12-14
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/assign-driver/1/2
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/tour/new
+Content-Type: application/json
+
+{
+  "name": "Courier Route A",
+  "description": "Route for delivering parcels from Warehouse A to Zone 1"
+}
+
+###
+
+GET http://localhost:8080/api/tour/add-driver/John%20Doe
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/driver-summary
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/all-tours
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/tour/static-tours
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/tour/remove-tour/1
+Accept: application/json
