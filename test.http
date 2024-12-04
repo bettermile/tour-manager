@@ -31,20 +31,6 @@ Content-Type: application/json
 GET http://localhost:8080/api/tour/add-driver/John%20Doe
 Accept: application/json
 
-###
-
-GET http://localhost:8080/api/tour/driver-summary
-Accept: application/json
-
-###
-
-GET http://localhost:8080/api/tour/all-tours
-Accept: application/json
-
-###
-
-GET http://localhost:8080/api/tour/static-tours
-Accept: application/json
 
 ###
 

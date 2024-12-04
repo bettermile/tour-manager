@@ -52,30 +52,6 @@ class TourService(
         }
     }
 
-    fun generateDriverSummary(): List<String> {
-        val summaries = mutableListOf<String>()
-        for (tour in tours) {
-            if (tour.driver != null) {
-                summaries.add("Driver: ${tour.driver!!.name}")
-            } else {
-                summaries.add("Driver not assigned")
-            }
-        }
-        return summaries
-    }
-
-    fun fetchToursWithDrivers(): List<Tour> {
-        return tours
-    }
-
-    fun buildStaticTourList(): List<Tour> {
-        val staticList = mutableListOf<Tour>()
-        for (tour in tourRepository.findAll()) {
-            staticList.add(tour)
-        }
-        return staticList
-    }
-
     fun deleteTour(id: Long) {
         tours.removeIf { it.id == id }
     }

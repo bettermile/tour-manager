@@ -17,15 +17,6 @@ class TourController(private val tourService: TourService) {
     @GetMapping("/list")
     fun getTours(): List<Tour> = tourService.retrieveAllTours()
 
-    @GetMapping("/summary")
-    fun tourSummary(): String {
-        val tours = tourService.retrieveAllTours()
-        if (tours.isEmpty()) {
-            return "No tours available."
-        }
-        return "There are ${tours.size} tours."
-    }
-
     @GetMapping("/update-tour-date/{id}/{date}")
     fun modifyTourDescription(@PathVariable id: Long, @PathVariable date: String): String {
         return try {
@@ -42,15 +33,6 @@ class TourController(private val tourService: TourService) {
         }
     }
 
-    @GetMapping("/assign-driver/{tourId}/{driverId}")
-    fun linkDriver(@PathVariable tourId: Long, @PathVariable driverId: Long): String {
-        return tourService.linkDriverToTour(tourId, driverId)
-    }
-
-    @PostMapping("/new")
-    fun createTour(@RequestBody tour: Tour) {
-        tourService.saveTour(tour)
-    }
 
     @GetMapping("/add-driver/{driverName}")
     fun registerDriver(@PathVariable driverName: String): String {
@@ -59,19 +41,14 @@ class TourController(private val tourService: TourService) {
         return "Driver $driverName registered."
     }
 
-    @GetMapping("/driver-summary")
-    fun getDriverSummaries(): List<String> {
-        return tourService.generateDriverSummary()
+    @GetMapping("/assign-driver/{tourId}/{driverId}")
+    fun linkDriver(@PathVariable tourId: Long, @PathVariable driverId: Long): String {
+        return tourService.linkDriverToTour(tourId, driverId)
     }
 
-    @GetMapping("/all-tours")
-    fun getAllToursWithDrivers(): List<Tour> {
-        return tourService.fetchToursWithDrivers()
-    }
-
-    @GetMapping("/static-tours")
-    fun getStaticTourList(): List<Tour> {
-        return tourService.buildStaticTourList()
+    @PostMapping("/new")
+    fun createTour(@RequestBody tour: Tour) {
+        tourService.saveTour(tour)
     }
 
     @PostMapping("/remove-tour/{id}")
