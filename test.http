@@ -23,7 +23,7 @@ Content-Type: application/json
 
 {
   "name": "Courier Route A",
-  "description": "Route for delivering parcels from Warehouse A to Zone 1"
+  "date": "2024-12-15"
 }
 
 ###
